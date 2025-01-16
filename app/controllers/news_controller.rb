@@ -6,11 +6,10 @@ class NewsController < ApplicationController
   def index
     @news = News.all
   end
-
-  # GET /news/1 or /news/1.json
+  
   def show
-  end
 
+  end
   # GET /news/new
   def new
     @news = News.new

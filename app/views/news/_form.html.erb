@@ -1,0 +1,50 @@
+<%= form_with(model: news, local: true) do |form| %>
+  <div style="display: flex; justify-content: center; align-items: center; min-height: 50vh;">
+    <div style="width: 50%; max-width: 600px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9;">
+    
+      <!-- Display error messages if any -->
+      <% if news.errors.any? %>
+        <div style="color: #d9534f; background-color: #f2dede; border: 1px solid #ebccd1; border-radius: 4px; padding: 10px; margin-bottom: 15px;">
+          <h2 style="margin: 0 0 10px; color: #a94442;">
+            <%= pluralize(news.errors.count, "error") %> prohibited this news from being saved:
+          </h2>
+          <ul style="margin: 0; padding-left: 20px;">
+            <% news.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <!-- Title Field -->
+      <div style="margin-bottom: 15px;">
+        <%= form.label :title, "Titulo:", style: "display: block; font-weight: bold; margin-bottom: 5px;" %>
+        <%= form.text_field :title, required: true, placeholder: "Enter the title", style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" %>
+      </div>
+
+      <!-- Description Field -->
+      <div style="margin-bottom: 15px;">
+        <%= form.label :description, "Descrição:", style: "display: block; font-weight: bold; margin-bottom: 5px;" %>
+        <%= form.text_area :description, rows: 5, placeholder: "Enter the description", style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" %>
+      </div>
+
+      <!-- Picture Field -->
+      <div style="margin-bottom: 15px;">
+        <%= form.label :picture, "Foto:", style: "display: block; font-weight: bold; margin-bottom: 5px;" %>
+        <%= form.file_field :picture, style: "padding: 6px;" %>
+      </div>
+
+      <!-- Display Date Field -->
+      <div style="margin-bottom: 15px;">
+        <%= form.label :display_date, "Data:", style: "display: block; font-weight: bold; margin-bottom: 5px;" %>
+        <%= form.date_field :display_date, required: true, style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" %>
+      </div>
+
+      <!-- Submit Button -->
+      <div style="text-align: center;">
+        <%= form.submit "Salvar", class: "btn btn-primary", style: "padding: 10px 15px; color: #fff; background-color: #007bff; border: none; border-radius: 4px; cursor: pointer;" %>
+      </div>
+      
+    </div>
+  </div>
+<% end %>

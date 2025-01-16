@@ -1,0 +1,18 @@
+<p style="color: green; font-weight: bold; margin-bottom: 15px;"><%= notice %></p>
+
+<h1 style="text-align: center; margin-bottom: 30px;">Eventos</h1>
+
+<div id="news" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+  <% @news.each do |news| %>
+    <div style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; width: 300px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+      <%= render news %>
+      <p style="text-align: center; margin-top: 10px;">
+        <%= link_to "Visualizar Evento", news, style: "text-decoration: none; color: #007bff;" %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<div style="text-align: center; margin-top: 30px;">
+  <%= link_to "Adicionar Evento", new_news_path, style: "padding: 10px 20px; color: #fff; background-color: #007bff; text-decoration: none; border-radius: 4px;" %>
+</div>

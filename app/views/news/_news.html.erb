@@ -1,0 +1,28 @@
+<div id="<%= dom_id news %>" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin-bottom: 16px; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+  <h2 style="margin-top: 0; color: #333;">Detalhes do evento</h2>
+
+  <p style="margin: 8px 0;">
+    <strong style="color: #555;">Titulo:</strong>
+    <span style="color: #222;"><%= news.title %></span>
+  </p>
+
+  <p style="margin: 8px 0;">
+    <strong style="color: #555;">Descrição:</strong>
+    <span style="color: #222;"><%= news.description %></span>
+  </p>
+
+  <% if news.picture.attached? %>
+    <p style="margin: 8px 0;">
+      <strong style="color: #555;">Imagem:</strong><br>
+      <%= image_tag news.picture, style: "max-width: 100%; border-radius: 4px;" %>
+    </p>
+  <% else %>
+    <p style="margin: 8px 0; color: #999;"><em>Sem foto.</em></p>
+  <% end %>
+
+  <p style="margin: 8px 0;">
+    <strong style="color: #555;">Data:</strong>
+    <span style="color: #222;"><%= news.display_date %></span>
+  </p>
+
+</div>

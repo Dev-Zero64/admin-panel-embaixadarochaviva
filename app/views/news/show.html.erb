@@ -1,0 +1,35 @@
+<p style="color: green; font-weight: bold; margin-bottom: 20px;"><%= notice %></p>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; max-width: 600px; margin: 0 auto; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); background-color: #f9f9f9;">
+  <h1 style="text-align: center; margin-bottom: 20px;">Detalhes da Noticia</h1>
+  
+  <p style="margin-bottom: 10px;">
+    <strong>Titulo:</strong> <%= @news.title %>
+  </p>
+
+  <p style="margin-bottom: 10px;">
+    <strong>Descrição:</strong> <%= @news.description %>
+  </p>
+
+  <p style="margin-bottom: 10px;">
+    <strong>Data:</strong> <%= @news.display_date %>
+  </p>
+
+  <% if @news.picture.attached? %>
+    <div style="text-align: center; margin: 20px 0;">
+      <strong>Picture:</strong><br>
+      <%= image_tag @news.picture, style: "max-width: 100%; border: 1px solid #ddd; border-radius: 8px;" %>
+    </div>
+  <% else %>
+    <p style="text-align: center; font-style: italic; color: #555;">No picture attached.</p>
+  <% end %>
+
+<div style="text-align: center; margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+  
+  <%= link_to "Voltar", news_index_path, style: "padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 4px;" %>
+  <%= link_to "Editar", edit_news_path(@news), style: "padding: 10px 20px; background-color: #ffc107; color: #000; text-decoration: none; border-radius: 4px;" %>
+  <%= button_to "Deletar", @news, method: :delete, data: { confirm: "Confirmar" }, style: "padding: 10px 20px; background-color: #dc3545; text-decoration: none; color: #fff; border-radius: 4px;" %>
+</div>
+
+
+</div>  

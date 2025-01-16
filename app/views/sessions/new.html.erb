@@ -1,15 +1,95 @@
-<h1>Login</h1>
+<div class="login-container">
+  <style>
+    /* Estilo do container de login */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+    }
 
-<%= form_with url: login_path, method: :post do %>
-  <div>
-    <%= label_tag :username, 'Usuário' %>
-    <%= text_field_tag :username %>
+    .login-card {
+      width: 100%;
+      max-width: 400px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .login-header h3 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .login-body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .form-input:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    .form-button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .form-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  
+  <div class="login-card">
+    <div class="login-header">
+      <h3>Login</h3>
+    </div>
+    <div class="login-body">
+      <%= form_with url: login_path, method: :post, local: true do %>
+        <div class="form-group">
+          <%= label_tag :username, 'Usuário', class: "form-label" %>
+          <%= text_field_tag :username, nil, class: "form-input", placeholder: "Digite seu usuário" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :password, 'Senha', class: "form-label" %>
+          <%= password_field_tag :password, nil, class: "form-input", placeholder: "Digite sua senha" %>
+        </div>
+        <div class="form-group">
+          <%= submit_tag 'Entrar', class: "form-button" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div>
-    <%= label_tag :password, 'Senha' %>
-    <%= password_field_tag :password %>
-  </div>
-  <div>
-    <%= submit_tag 'Entrar' %>
-  </div>
-<% end %>
+</div>

@@ -6,7 +6,7 @@
       <% if news.errors.any? %>
         <div style="color: #d9534f; background-color: #f2dede; border: 1px solid #ebccd1; border-radius: 4px; padding: 10px; margin-bottom: 15px;">
           <h2 style="margin: 0 0 10px; color: #a94442;">
-            <%= pluralize(news.errors.count, "error") %> prohibited this news from being saved:
+            <%= pluralize(news.errors.count, "error") %> Erro ao salvar evento:
           </h2>
           <ul style="margin: 0; padding-left: 20px;">
             <% news.errors.full_messages.each do |message| %>
@@ -19,13 +19,13 @@
       <!-- Title Field -->
       <div style="margin-bottom: 15px;">
         <%= form.label :title, "Titulo:", style: "display: block; font-weight: bold; margin-bottom: 5px;" %>
-        <%= form.text_field :title, required: true, placeholder: "Enter the title", style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" %>
+        <%= form.text_field :title, required: true, placeholder: "Insira o titulo", style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" %>
       </div>
 
       <!-- Description Field -->
       <div style="margin-bottom: 15px;">
         <%= form.label :description, "Descrição:", style: "display: block; font-weight: bold; margin-bottom: 5px;" %>
-        <%= form.text_area :description, rows: 5, placeholder: "Enter the description", style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" %>
+        <%= form.text_area :description, rows: 5, placeholder: "Descreva o evento", style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" %>
       </div>
 
       <!-- Picture Field -->

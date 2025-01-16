@@ -26,7 +26,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       if @news.save
-        format.html { redirect_to news_url(@news), notice: "News was successfully created." }
+        format.html { redirect_to news_url(@news), notice: "Evento criado com sucesso" }
         format.json { render :show, status: :created, location: @news }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class NewsController < ApplicationController
   def update
     respond_to do |format|
       if @news.update(news_params)
-        format.html { redirect_to news_url(@news), notice: "News was successfully updated." }
+        format.html { redirect_to news_url(@news), notice: "Evento foi atualizado com sucesso" }
         format.json { render :show, status: :ok, location: @news }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class NewsController < ApplicationController
     @news.destroy!
 
     respond_to do |format|
-      format.html { redirect_to news_index_url, notice: "News was successfully destroyed." }
+      format.html { redirect_to news_index_url, notice: "Evento foi deletado com sucesso" }
       format.json { head :no_content }
     end
   end

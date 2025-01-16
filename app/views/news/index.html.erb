@@ -16,3 +16,7 @@
 <div style="text-align: center; margin-top: 30px;">
   <%= link_to "Adicionar Evento", new_news_path, style: "padding: 10px 20px; color: #fff; background-color: #007bff; text-decoration: none; border-radius: 4px;" %>
 </div>
+
+<div style="text-align: center; margin-top: 30px;">
+  <%= button_to 'Logout', logout_path, method: :delete, data: { confirm: "Tem certeza?" }, class: "logout-button" %>
+</div>

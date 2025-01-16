@@ -1,4 +1,5 @@
 class NewsController < ApplicationController
+  before_action :require_login # Aplica o filtro para todas as ações
   before_action :set_news, only: %i[ show edit update destroy ]
 
   # GET /news or /news.json
@@ -58,12 +59,25 @@ class NewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+    # Verifica se o usuário está logado
+    def require_login
+      unless logged_in?
+        redirect_to login_path, alert: "Você precisa fazer login para acessar esta página."
+      end
+    end
+
+    # Define o método para verificar se o usuário está logado
+    def logged_in?
+      session[:user_id].present?
+    end
+
+    # Use callbacks para compartilhar configuração comum ou restrições entre ações.
     def set_news
       @news = News.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # Permitir apenas parâmetros confiáveis.
     def news_params
       params.require(:news).permit(:title, :description, :picture, :display_date, :iso_date)
     end
